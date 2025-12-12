@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | App de Ações</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div>
+          <div class="title">Bem-vindo</div>
+          <div class="subtitle">Faça login para acessar o aplicativo</div>
+        </div>
+      </div>
+      <form id="login-form" style="margin-top: 16px;">
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" placeholder="Digite a senha" autocomplete="current-password" />
+        <button class="btn" type="submit">Entrar</button>
+        <div id="erro" class="alert alert-danger hidden"></div>
+      </form>
+      <div class="footer">Senha: <strong>Karlos123</strong>.</div>
+    </div>
+  </div>
+  <script src="assets/app.js"></script>
+  <script>initLogin();</script>
+</body>
+</html>

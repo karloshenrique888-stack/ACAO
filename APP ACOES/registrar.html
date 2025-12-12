@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrar | App de Ações</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div>
+          <div class="title">Registrar ação</div>
+          <div class="subtitle">Informe a descrição e a data</div>
+        </div>
+        <div>
+          <a class="btn btn-outline" href="menu.html">Voltar</a>
+        </div>
+      </div>
+
+      <form id="form-registrar" style="margin-top: 16px;">
+        <div class="input-row">
+          <div>
+            <label for="descricao">Descrição da ação</label>
+            <textarea id="descricao" placeholder="Ex.: Visitar obra, enviar relatório, etc."></textarea>
+          </div>
+          <div>
+            <label for="data">Data da execução</label>
+            <input id="data" type="date" />
+          </div>
+        </div>
+        <div style="margin-top: 12px; display:flex; gap:12px;">
+          <button class="btn" type="submit">Confirmar</button>
+          <a class="btn btn-outline" href="menu.html">Cancelar</a>
+        </div>
+        <div id="msg-ok" class="alert alert-success hidden"></div>
+        <div id="msg-bad" class="alert alert-danger hidden"></div>
+      </form>
+    </div>
+  </div>
+  <script src="assets/app.js"></script>
+  <script>initRegistrar();</script>
+</body>
+</html>
