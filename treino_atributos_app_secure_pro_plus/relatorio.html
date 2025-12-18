@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relatório de Treinos</title>
+  <link rel="stylesheet" href="app.css" />
+  <style>
+    @page { size: A4; margin: 16mm; }
+    @media print { .no-print { display: none !important; } body { background: #fff !important; color: #000; } .card { box-shadow: none; border: none; } }
+    body { background: #fff; color: #000; } .title { font-size: 1.4rem; font-weight: 800; }
+    table { width: 100%; border-collapse: collapse; } th, td { border: 1px solid #ddd; padding: .5rem; text-align: left; } th { background: #f4f4f4; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="row no-print">
+      <a href="javascript:history.back()" class="btn">← Voltar</a>
+      <button class="btn primary" onclick="window.print()">Imprimir / Salvar PDF</button>
+    </div>
+    <div class="title">Relatório de Treinos</div>
+    <div id="periodo" class="hint"></div>
+    <div id="resumo" class="mt-1"></div>
+    <table class="table mt-1" id="tabela">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Previstos</th>
+          <th>Executados</th>
+          <th>Concluídos (%)</th>
+          <th>Esforço</th>
+          <th>Observações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="app.js"></script>
+  <script src="relatorio.js"></script>
+</body>
+</html>

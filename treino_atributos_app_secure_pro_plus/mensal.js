@@ -1,0 +1,13 @@
+requireLogin();(function(){
+  const mes=document.getElementById('mes'); const metaSemanal=document.getElementById('metaSemanal'); const alerta=document.getElementById('alertaConsistencia'); const grid=document.getElementById('gridMensal'); const resumo=document.getElementById('resumoMensal'); const btnSalvar=document.getElementById('btnSalvarMensal');
+  const now=new Date(); mes.value = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  function daysInMonth(y,m){ return new Date(y, m, 0).getDate(); }
+  function render(){ grid.innerHTML=''; const [y,m]=mes.value.split('-').map(Number); const n=daysInMonth(y,m); let totPrev=0, totExec=0; for(let d=1; d<=n; d++){ const iso=`${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`; const s=loadStore(); const day=s[iso]; const prev=(day?.resumo?.previstos ?? (day?.exercicios?.length||0)); const exec=(day?.resumo?.executados ?? (day?.exercicios||[]).filter(e=>e.done).length);
+    const cell=document.createElement('div'); cell.className='month-cell'; cell.innerHTML=`<div class="date">${String(d).padStart(2,'0')}</div><div class="hint">${prev} / ${exec}</div>`; cell.addEventListener('click',()=>{ window.location.href='treino.html?date='+encodeURIComponent(iso); }); grid.appendChild(cell); totPrev+=prev; totExec+=exec; }
+    const pct = totPrev? Math.round(100*totExec/totPrev):0; const weeklyGoal = parseInt(metaSemanal.value||'3',10); const weeks = Math.ceil(n/7); const goalDays = weeklyGoal*weeks; const doneDays = Array.from({length:n},(_,i)=>{ const iso=`${y}-${String(m).padStart(2,'0')}-${String(i+1).padStart(2,'0')}`; const s=loadStore(); const day=s[iso]; const exec=(day?.resumo?.executados ?? (day?.exercicios||[]).filter(e=>e.done).length); return exec>0; }).filter(Boolean).length;
+    const consistency = goalDays? Math.round(100*doneDays/goalDays):0; const warn = consistency < (parseInt(alerta.value||'60',10));
+    resumo.innerHTML = `<div class="row"><div class="col"><strong>Semanas:</strong> ${weeks}</div><div class="col"><strong>Meta semanal:</strong> ${weeklyGoal} dias</div><div class="col"><strong>Concluído:</strong> ${pct}%</div><div class="col"><strong>Consistência:</strong> ${consistency}% ${warn?'<span style=\"color:#ef4444\">(Abaixo do alvo)</span>':''}</div></div>`;
+  }
+  mes.addEventListener('change', render); metaSemanal.addEventListener('input', render); alerta.addEventListener('input', render); btnSalvar.addEventListener('click',()=>{ const cfg={ metaSemanal: parseInt(metaSemanal.value,10)||3, alerta: parseInt(alerta.value,10)||60 }; localStorage.setItem('mensal_cfg', JSON.stringify(cfg)); alert('Plano mensal salvo.'); });
+  render();
+})();

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#115EA3" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="app.css" />
+  <title>Treino para Melhoria de Atributos</title>
+</head>
+<body>
+  <header class="app-header">
+    <a href="javascript:history.back()" class="btn btn-back" aria-label="Voltar">←</a>
+    <h1 data-i18n="title">TREINO PARA MELHORIA DE ATRIBUTOS</h1>
+    <div class="header-actions">
+      <a href="perfis.html" class="btn" aria-label="Perfis">Perfis</a>
+      <button class="btn icon" id="btnTheme" aria-label="Alternar tema">🌙</button>
+      <button class="btn icon" id="btnLang" aria-label="Alternar idioma">PT</button>
+    </div>
+  </header>
+  <main>
+    <section class="view">
+      <div class="card">
+        <h2 data-i18n="monthly_title">Plano mensal</h2>
+        <div class="row">
+          <div class="col">
+            <label for="mes" data-i18n="month">Mês:</label>
+            <input type="month" id="mes" />
+          </div>
+          <div class="col">
+            <label for="metaSemanal" data-i18n="weekly_goal">Meta semanal (dias/semana):</label>
+            <input type="number" id="metaSemanal" min="1" max="7" value="3" />
+          </div>
+          <div class="col">
+            <label for="alertaConsistencia" data-i18n="consistency_alert">Alerta de consistência (%):</label>
+            <input type="number" id="alertaConsistencia" min="10" max="100" value="60" />
+          </div>
+        </div>
+        <div id="gridMensal" class="month-grid mt-1" aria-label="Calendário mensal"></div>
+        <div id="resumoMensal" class="mt-1"></div>
+        <div class="row mt-1">
+          <button id="btnSalvarMensal" class="btn primary" data-i18n="save">Salvar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer"><small data-i18n="footer">PWA offline · Progresso salvo no dispositivo</small></footer>
+  <script src="app.js"></script>
+  <script src="mensal.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#115EA3" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="app.css" />
+  <title>Treino para Melhoria de Atributos</title>
+</head>
+<body>
+  <header class="app-header">
+    <a href="javascript:history.back()" class="btn btn-back" aria-label="Voltar">←</a>
+    <h1 data-i18n="title">TREINO PARA MELHORIA DE ATRIBUTOS</h1>
+    <div class="header-actions">
+      <a href="perfis.html" class="btn" aria-label="Perfis">Perfis</a>
+      <button class="btn icon" id="btnTheme" aria-label="Alternar tema">🌙</button>
+      <button class="btn icon" id="btnLang" aria-label="Alternar idioma">PT</button>
+    </div>
+  </header>
+  <main>
+    <section class="view">
+      <div class="card">
+        <h2 data-i18n="settings">Configurações</h2>
+        <h3 class="section-title">Acessibilidade</h3>
+        <div class="row">
+          <button id="btnTextoGrande" class="btn">Texto grande</button>
+          <button id="btnAltoContraste" class="btn">Alto contraste</button>
+          <button id="btnBotoesGrandes" class="btn">Botões grandes</button>
+        </div>
+        <h3 class="section-title" data-i18n="firebase_title">Backup/Sincronização (Firebase)</h3>
+        <p class="hint" data-i18n="firebase_hint">Preencha sua configuração do Firebase para sincronizar dados entre dispositivos. Se não preencher, o app funciona offline normalmente.</p>
+        <div class="row">
+          <div class="col"><label>apiKey</label><input type="text" id="fb_apiKey" /></div>
+          <div class="col"><label>authDomain</label><input type="text" id="fb_authDomain" /></div>
+          <div class="col"><label>projectId</label><input type="text" id="fb_projectId" /></div>
+        </div>
+        <div class="row mt-1">
+          <div class="col"><label>storageBucket</label><input type="text" id="fb_storageBucket" /></div>
+          <div class="col"><label>messagingSenderId</label><input type="text" id="fb_messagingSenderId" /></div>
+          <div class="col"><label>appId</label><input type="text" id="fb_appId" /></div>
+        </div>
+        <div class="row mt-1">
+          <button id="btnSalvarFirebase" class="btn primary" data-i18n="save">Salvar</button>
+          <button id="btnTestarFirebase" class="btn" data-i18n="test_sync">Testar sincronização</button>
+        </div>
+        <div id="statusFirebase" class="mt-1 hint"></div>
+        <h3 class="section-title">Backup manual</h3>
+        <div class="row">
+          <button id="btnExportJSON" class="btn">Exportar JSON</button>
+          <label class="btn">
+            Importar JSON
+            <input type="file" id="fileImport" accept="application/json" style="display:none" />
+          </label>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer"><small data-i18n="footer">PWA offline · Progresso salvo no dispositivo</small></footer>
+  <script src="app.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

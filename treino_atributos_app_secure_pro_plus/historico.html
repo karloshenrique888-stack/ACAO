@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#115EA3" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="app.css" />
+  <title>Treino para Melhoria de Atributos</title>
+</head>
+<body>
+  <header class="app-header">
+    <a href="javascript:history.back()" class="btn btn-back" aria-label="Voltar">←</a>
+    <h1 data-i18n="title">TREINO PARA MELHORIA DE ATRIBUTOS</h1>
+    <div class="header-actions">
+      <a href="perfis.html" class="btn" aria-label="Perfis">Perfis</a>
+      <button class="btn icon" id="btnTheme" aria-label="Alternar tema">🌙</button>
+      <button class="btn icon" id="btnLang" aria-label="Alternar idioma">PT</button>
+    </div>
+  </header>
+  <main>
+    <section class="view">
+      <div class="card">
+        <h2 data-i18n="history">Histórico</h2>
+        <div class="row">
+          <div class="col">
+            <label for="filtroInicio" data-i18n="start">Início:</label>
+            <input type="date" id="filtroInicio" />
+          </div>
+          <div class="col">
+            <label for="filtroFim" data-i18n="end">Fim:</label>
+            <input type="date" id="filtroFim" />
+          </div>
+          <div class="col">
+            <label>&nbsp;</label>
+            <button id="btnFiltrar" class="btn" data-i18n="filter">Filtrar</button>
+          </div>
+          <div class="col">
+            <label>&nbsp;</label>
+            <a id="btnExportarPDF" class="btn" href="#" data-i18n="export_pdf">Exportar PDF</a>
+          </div>
+          <div class="col">
+            <label>&nbsp;</label>
+            <a id="btnExportarCSV" class="btn" href="#">Exportar CSV</a>
+          </div>
+        </div>
+        <div id="resumoHistorico" class="mt-1"></div>
+        <table class="table mt-1" id="tabelaHistorico" aria-label="Tabela de histórico">
+          <thead>
+            <tr>
+              <th data-i18n="date">Data</th>
+              <th data-i18n="planned">Previstos</th>
+              <th data-i18n="done">Executados</th>
+              <th data-i18n="completed">Concluídos (%)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="card mt-1">
+        <h3 class="section-title" data-i18n="visual_summary">Resumo visual</h3>
+        <div id="graficoBarra" class="grafico"></div>
+        <div id="graficoEsforco" class="grafico mt-1"></div>
+        <div id="graficoConclusao" class="grafico mt-1"></div>
+        <p class="hint" data-i18n="chart_hint">Executados vs. previstos, esforço e tendência de conclusão.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer"><small data-i18n="footer">PWA offline · Progresso salvo no dispositivo</small></footer>
+  <script src="app.js"></script>
+  <script src="historico.js"></script>
+</body>
+</html>

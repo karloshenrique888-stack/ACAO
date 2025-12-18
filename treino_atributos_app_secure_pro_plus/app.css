@@ -1,0 +1,23 @@
+:root{--bg:#0B1220;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--primary:#115EA3;--primary-2:#1F7AD6;--danger:#EF4444;--ring:0 10px 30px rgba(17,94,163,.35)}
+body.light{--bg:#f5f7fb;--card:#ffffff;--text:#111827;--muted:#6b7280;--ring:0 10px 30px rgba(17,94,163,.15)}
+body.high-contrast{--bg:#000;--card:#000;--text:#fff;--muted:#ddd;--primary:#00ffff;--primary-2:#00ff00}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:linear-gradient(135deg,var(--bg),#0e182b 50%,var(--bg));color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif}
+body.big-text{font-size:1.05rem}
+.app-header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:.75rem;justify-content:space-between;padding:1rem;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:saturate(180%) blur(6px);background:rgba(10,16,28,.6)}
+.app-header h1{font-size:1.05rem;margin:0}.app-header .btn-back{color:var(--text);border:1px solid rgba(255,255,255,.25);background:transparent}.header-actions{display:flex;gap:.5rem;align-items:center}.no-back .btn-back{display:none}
+main{padding:1rem}.card{max-width:980px;margin:0 auto;background:linear-gradient(180deg,#121a2c,var(--card));border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.2rem;box-shadow:var(--ring)}
+.hint{color:var(--muted);font-size:.95rem}.row{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}.col{flex:1;min-width:180px}.mt-1{margin-top:.8rem}label{font-weight:600;color:var(--muted)}
+input[type=password],input[type=text],input[type=date],input[type=month],input[type=number],textarea,select{width:100%;padding:.8rem 1rem;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:#0b1323;color:var(--text);outline:none}
+body.light input,body.light textarea,body.light select{background:#f3f5fa;border-color:#e2e8f0}input:focus,textarea:focus,select:focus{border-color:rgba(31,122,214,.8);box-shadow:0 0 0 3px rgba(31,122,214,.3)}
+.btn{border:none;border-radius:12px;padding:.7rem 1rem;font-weight:700;cursor:pointer;color:#fff;background:#1f2937}
+body.large-buttons .btn{padding:1rem 1.2rem} .btn:hover{filter:brightness(1.05)} .btn.primary{background:linear-gradient(90deg,var(--primary),var(--primary-2))} .btn.danger{background:linear-gradient(90deg,#d93636,#ef4444)} .btn.icon{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.25)}
+.table{width:100%;border-collapse:collapse}.table th,.table td{border-bottom:1px solid rgba(255,255,255,.08);padding:.7rem;text-align:left}
+.section-title{margin:1rem 0 .5rem;font-size:1rem;font-weight:800;color:#93c5fd}
+.exercise{border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:.9rem;background:linear-gradient(180deg,#0c1526,#0b1321);box-shadow:0 10px 24px rgba(0,0,0,.35)}.exercise .title{font-weight:800}.exercise .meta{color:var(--muted);font-size:.95rem}.exercise .actions{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap}.exercise.done{border-color:#064e3b;background:linear-gradient(180deg,#0c1f1a,#0b1b16)}
+.progress{height:12px;background:#0b1323;border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}.progress>div{height:100%;background:linear-gradient(90deg,#22c55e,#16a34a);width:0%}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem}.week-cell{background:#0b1323;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.6rem;cursor:pointer}.week-cell:hover{filter:brightness(1.05)}.week-cell .day{font-weight:800}
+.grafico{min-height:140px}svg.bar-chart{width:100%;height:160px}
+.month-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem}.month-cell{background:#0b1323;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.6rem}.month-cell .date{font-weight:800}
+.icon-inline{width:22px;height:22px;vertical-align:middle;margin-right:.35rem}
+@media (max-width:720px){.week-grid{grid-template-columns:repeat(3,1fr)}.month-grid{grid-template-columns:repeat(4,1fr)}}@media (max-width:520px){.app-header h1{font-size:.95rem}.card{padding:1rem}}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#115EA3" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="app.css" />
+  <title>Treino para Melhoria de Atributos</title>
+</head>
+<body>
+  <header class="app-header">
+    <a href="javascript:history.back()" class="btn btn-back" aria-label="Voltar">←</a>
+    <h1 data-i18n="title">TREINO PARA MELHORIA DE ATRIBUTOS</h1>
+    <div class="header-actions">
+      <a href="perfis.html" class="btn" aria-label="Perfis">Perfis</a>
+      <button class="btn icon" id="btnTheme" aria-label="Alternar tema">🌙</button>
+      <button class="btn icon" id="btnLang" aria-label="Alternar idioma">PT</button>
+    </div>
+  </header>
+  <main>
+    <section class="view">
+      <div class="card">
+        <h2 id="treinoTitulo" data-i18n="day_training">Treino do dia</h2>
+        <div class="row mt-1">
+          <button id="btnAddExercicio" class="btn" data-i18n="add_exercise">+ Adicionar exercício</button>
+          <button id="btnTodosRealizados" class="btn" data-i18n="mark_all">Marcar todos como realizado</button>
+        </div>
+        <div id="listaExercicios" class="mt-1" aria-label="Lista de exercícios"></div>
+        <div class="card mt-1">
+          <h3 class="section-title" data-i18n="notes_effort">Observações & Esforço</h3>
+          <label for="obs" data-i18n="notes">Observações do dia:</label>
+          <textarea id="obs" rows="3" placeholder=""></textarea>
+          <div class="row mt-1">
+            <div class="col">
+              <label for="esforco" data-i18n="effort">Esforço (1–10):</label>
+              <input type="range" id="esforco" min="1" max="10" value="5" />
+            </div>
+            <div class="col">
+              <span id="esforcoValor" class="hint">5</span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-1">
+          <button id="btnSalvarTreino" class="btn primary" data-i18n="save_progress">Salvar progresso</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer"><small data-i18n="footer">PWA offline · Progresso salvo no dispositivo</small></footer>
+  <script src="app.js"></script>
+  <script src="treino.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#115EA3" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="app.css" />
+  <title>Treino para Melhoria de Atributos</title>
+</head>
+<body>
+  <header class="app-header">
+    <a href="javascript:history.back()" class="btn btn-back" aria-label="Voltar">←</a>
+    <h1 data-i18n="title">TREINO PARA MELHORIA DE ATRIBUTOS</h1>
+    <div class="header-actions">
+      <a href="perfis.html" class="btn" aria-label="Perfis">Perfis</a>
+      <button class="btn icon" id="btnTheme" aria-label="Alternar tema">🌙</button>
+      <button class="btn icon" id="btnLang" aria-label="Alternar idioma">PT</button>
+    </div>
+  </header>
+  <main>
+    <section class="view">
+      <div class="card">
+        <h2 data-i18n="calendar_title">Escolher dia do treino</h2>
+        <div class="row">
+          <div class="col">
+            <label for="dataTreino" data-i18n="calendar_date">Data do treino:</label>
+            <input type="date" id="dataTreino" />
+          </div>
+          <div class="col">
+            <label for="ageGroup">Faixa etária:</label>
+            <select id="ageGroup"><option value="8-10">8–10</option><option value="11-12">11–12</option><option value="13+">13+</option></select>
+          </div>
+          <div class="col">
+            <label for="level">Nível:</label>
+            <select id="level"><option value="iniciante">Iniciante</option><option value="intermediario">Intermediário</option></select>
+          </div>
+        </div>
+        <div class="row mt-1">
+          <button id="btnAbrirTreino" class="btn primary" data-i18n="open_day">Abrir treino do dia</button>
+          <a href="historico.html" class="btn" data-i18n="history">Histórico</a>
+          <a href="mensal.html" class="btn" data-i18n="monthly">Plano mensal</a>
+        </div>
+      </div>
+      <div class="card mt-1">
+        <h2 data-i18n="week_preview">Prévia da semana</h2>
+        <div id="previewSemana" class="week-grid" aria-label="Prévia da semana"></div>
+        <p class="hint" data-i18n="tap_hint">Toque em um dia para abrir o treino correspondente.</p>
+        <div class="row mt-1">
+          <button id="btnSair" class="btn danger" data-i18n="logout">Sair</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="app-footer"><small data-i18n="footer">PWA offline · Progresso salvo no dispositivo</small></footer>
+  <script src="app.js"></script>
+  <script src="calendar.js"></script>
+</body>
+</html>
